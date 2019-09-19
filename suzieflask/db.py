@@ -6,17 +6,36 @@ from sqlalchemy.ext.declarative import declarative_base
 import click
 from flask import current_app, g
 from flask.cli import with_appcontext
+from suzieflask.dbmodels import Promise, Base
 
-engine = create_engine('sqlite:////tmp/test.db', convert_unicode=True)
+engine = create_engine('sqlite:///test.db', convert_unicode=True)
 DBSession = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
-Base = declarative_base()
 
 def initDB():
-    from suzieflask.dbmodels import Promise
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
+
+def getColumnNames():
+    return ['Promise','Progress', 'Date']
+
+def getNRows(N=100):
+    session = DBSession()
+    rows = session.query(Promise).all()
+    print(rows)
+    return [
+    [ 
+    r.task,
+    r.progress,
+    r.date,
+    ]
+    for r in rows]
+
+def getDetailedPromise(id=0):
+    session = DBSession()
+    row = session.query(Promise.taskID == id)
+
 
 @click.command('init-db')
 @with_appcontext

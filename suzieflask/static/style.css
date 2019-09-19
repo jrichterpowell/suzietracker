@@ -1,0 +1,159 @@
+@font-face {
+    font-family: Aileron;
+    src: url("fonts/Aileron-Light.otf") format("opentype");
+}
+html {font-family: "Aileron"; height:100% }
+body {
+  width: 100%; 
+  height: 100%;
+  margin: 0 auto; 
+  background-color:#f8f9fc;
+  background-image:url("wcmcgill.jpg");
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
+}
+.content{
+  height: 100%;
+}
+nav{
+  border-bottom: 3px solid #062F4F;
+  margin-bottom: 3%;
+}
+nav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fc;
+}
+nav ul li {
+  text-align: center;
+  padding: 32px 32px;
+  display: inline-block;
+  color: #c00000;
+}
+nav ul li:hover {
+  text-align: center;
+  padding: 32px 32px;
+  display: inline-block;
+  background-color: #c00000;
+  color:#f8f9fc;
+}
+
+nav ul li.titleBlock {
+  text-align: center;
+  padding: 32px 32px 32px 32px;
+  display: inline-block;
+  font-weight: 1000;
+  background-color: #c00000;
+
+}
+nav ul li.titleBlock a{
+  font-size: 1.5em;
+  display: block;
+  text-decoration: none;
+  color:#f8f9fc;
+  display:inline-block;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+
+nav ul a{
+  font-size: 1.5em;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  display:inline-block;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+
+/*Table Styling*/
+.container {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 90%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 0 0;
+  border: solid 10px #062F4F;
+}
+.container th h2 {
+	  font-weight: bold;
+	  font-size: 1.5em;
+    text-align: center;
+    color: #F1E5D4;
+    letter-spacing: 5px;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container td, .container th {
+    padding: 3%;  
+}
+
+.container tr:nth-child(odd) {
+    background-color: #DBDBE0;
+    
+    margin: 3%;
+}
+
+.container tr:nth-child(even) {
+    background-color: #f8f9fc;
+    margin: 3%;
+}
+
+.container th {
+	  background-color: #de3c3c;
+}
+
+.container td:first-child { color: #FB667A; }
+
+.container tr:hover {
+    cursor: pointer;
+}
+/*Form styling*/
+.formContainer{
+  background-color:white;
+  width: 80%;
+  margin: 0 auto;
+  border: solid 10px #062F4F;
+  height: 85%;
+}
+.formContainer h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: 100;
+  background-color: #c00000;
+  color: #f8f9fc;
+  display: block;
+  margin: 0 auto;
+}
+.formContainer form{
+  display: block;
+  margin: 0 auto;
+  
+}
+.formContainer label{
+  padding: 2% 10% 2% 2%;
+}
+.formContainer input{
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  line-height: 50%;
+  display: block;
+  direction: ltr;
+}
+.formContainer .inField{
+  height: 50px;
+  padding: 3%;
+  display: block;
+  margin: 0 auto;
+}

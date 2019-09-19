@@ -1,34 +1,45 @@
 import os
 
-from flask import Flask
-from suzieflask.db import DBSession, init_db_command
+from flask import Flask, render_template
+from suzieflask.db import DBSession, init_db_command, getColumnNames, getNRows
+from suzieflask import config
 
-def create_app(test_config=None):
+def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'suzietracker.sqlite'),
     )
 
-    if test_config is None:
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        app.config.from_mapping(test_config)
-    
+    app.config.from_object(config.Development)
+
     try:
         os.makedirs(app.instance_path)
     except OSError:
         #do we not want to handle this?
         pass
 
-    @app.route('/hello')
-    def hello():
-        return 'Hello, world!'
+    @app.route('/')
+    def home():
+        columns = getColumnNames()
+        rows = getNRows()
+        return render_template("home.html", tableColumns=columns, rows=rows)
+
+    @app.route('/filter')
+    def filter():
+        return ""
+
+    @app.route('/about')
+    def about():
+        return ""
+    
     @app.teardown_appcontext
     def shutdown_session(exception=None):
         DBSession.remove()
 
     app.cli.add_command(init_db_command)
+
+    from . import newpromise
+    app.register_blueprint(newpromise.bp)
     
     return app
 

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="formContainer">
+<h1>Add New Promise</h1>
+    <form method="POST">
+        <div id="taskField" class="inField">
+            <label for="task">Task</label>
+            <input name="task" id="task" required>
+        </div>
+        <div id="progressField" class="inField">
+            <label for="progress">Progress</label>
+            <input type="range" min="0" max="10" value="5" class="slider" name="progress" id="progress" required>
+        </div>
+        <div id="dateField" class="inField">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div id="detailsField" class="inField">
+            <label for="details">Details</label>
+            <input name="details" id="details">
+        </div>
+        <div id="referencesField" class="inField">
+            <label for="references">References</label>
+            <input name="references" id="references">
+        </div>
+        <input type="submit" name="AddPromise" value="Submit">
+        {{ recaptcha }}
+    </form>
+</div>
+{% endblock %}
