@@ -1,1 +1,5 @@
-venv/ suzieflask/__pycache__/ test.db .vscode/ suzieflask/config.py
+venv/ 
+suzieflask/__pycache__/ 
+test.db 
+.vscode/ 
+suzieflask/config.py
