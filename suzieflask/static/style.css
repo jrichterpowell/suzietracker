@@ -4,17 +4,18 @@
 }
 html {font-family: "Aileron"; height:100% }
 body {
-  width: 100%; 
+  width: auto;
   height: 100%;
   margin: 0 auto; 
   background-color:#f8f9fc;
   background-image:url("wcmcgill.jpg");
   background-repeat: no-repeat; 
   background-position: center; 
+  background-attachment: fixed;
   background-size: cover;
 }
 .content{
-  height: 100%;
+  height: 80%;
 }
 nav{
   border-bottom: 3px solid #062F4F;
@@ -32,6 +33,14 @@ nav ul li {
   display: inline-block;
   color: #c00000;
 }
+nav ul li:last-child {
+  text-align: center;
+  padding: 32px 32px;
+  display: block;
+  color: #c00000;
+  float: right;
+}
+
 nav ul li:hover {
   text-align: center;
   padding: 32px 32px;
@@ -124,7 +133,8 @@ nav ul a{
   width: 80%;
   margin: 0 auto;
   border: solid 10px #062F4F;
-  height: 85%;
+  height: auto;
+  margin-bottom: 5%;
 }
 .formContainer h1{
   text-align: center;
@@ -141,19 +151,121 @@ nav ul a{
   
 }
 .formContainer label{
-  padding: 2% 10% 2% 2%;
+  font-family: Aileron, sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-weight: 100;
+  width:45%;
+
 }
 .formContainer input{
   width: 50%;
   height: 100%;
   box-sizing: border-box;
-  line-height: 50%;
-  display: block;
-  direction: ltr;
+}
+.formContainer textarea{
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.formContainer .submitContainer{
+  margin: 0 auto;
+  text-align: center;
+  width:125px;
+  padding: 2%;
 }
 .formContainer .inField{
-  height: 50px;
-  padding: 3%;
+  height: 7.5%;
+  align-items:center;
+  justify-content: space-between;
+  line-height:2em;
+  padding: 1.5%;
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.formContainer .g-recaptcha div{
+  margin: 0 auto;
+}
+
+/*detailed task page styling*/
+.detailedContainer{
+  background-color:white;
+  width: 80%;
+  margin: 0 auto;
+  border: solid 10px #062F4F;
+  height: 85%;
+}
+
+.detailedContainer .titleBlock h2{
+  text-align: center;
+  font-size: 3em;
+  font-weight: 100;
+  background-color: #c00000;
+  color: #f8f9fc;
   display: block;
   margin: 0 auto;
 }
+
+.detailedContainer h3{
+  border-bottom: 3px solid #f7b32d;
+  margin-left: 3%;
+  padding: 0 3% 0 0 ;
+  text-align: center;
+  display: inline-block;
+}
+
+.detailedContainer p{
+  padding: 1% 1% 1% 0;
+  margin: 0 0 0 3%; 
+  display: block;
+}
+
+/*login page styling*/
+.loginContainer{
+  background-color:white;
+  width: 350px;
+  margin: auto;
+  border: solid 10px #062F4F;
+  height: auto;
+}
+.loginContainer h1{
+  text-align: center;
+  font-size: 3em;
+  font-weight: 100;
+  background-color: #c00000;
+  color: #f8f9fc;
+  display: block;
+  margin: 0 auto;
+}
+.loginContainer label{
+  padding: 1%;
+  font-family: Aileron, sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: #062F4F;
+  font-weight: 1000;
+  display: block;
+  text-align: center;
+
+}
+.loginContainer input{
+  width: 40%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 1% auto 1% auto;
+  text-align: center;
+}
+
+.loginContainer .submitContainer input{
+  width: 15%;
+  line-height:2em;
+  box-sizing: border-box;
+  display: block;
+  margin: 1% auto 1% auto;
+  text-align: center;
+}
+

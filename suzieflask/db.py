@@ -18,18 +18,18 @@ def initDB():
     Base.metadata.create_all(bind=engine)
 
 def getColumnNames():
-    return ['Promise','Progress', 'Date']
+    return ['Promise','Progress', 'Start Date', 'End Date (Projected)']
 
 def getNRows(N=100):
     session = DBSession()
     rows = session.query(Promise).all()
-    print(rows)
     return [
+    (r.taskID, r.task,
     [ 
-    r.task,
     r.progress,
-    r.date,
-    ]
+    r.startdate,
+    r.enddate
+    ])
     for r in rows]
 
 def getDetailedPromise(id=0):

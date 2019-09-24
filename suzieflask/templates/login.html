@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="display: flex; width: 100%; height: 100%">
+<div class='loginContainer'>
+    <div class='titleBlock'>
+        <h1>Login</h1>
+    </div>
+    <form method="POST">
+        {{ form.username.label }}
+        {{ form.username }}
+        {{ form.password.label }}
+        {{ form.password }}
+        <div class='submitContainer'>
+            {{ form.submit}}
+        </div>
+        </form>
+        <p style='text-align:center'> If you don't already have an account, you don't belong here.</p>   
+</div>
+</div>
+{% endblock %}

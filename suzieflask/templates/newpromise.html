@@ -4,28 +4,29 @@
 <div class="formContainer">
 <h1>Add New Promise</h1>
     <form method="POST">
-        <div id="taskField" class="inField">
-            <label for="task">Task</label>
-            <input name="task" id="task" required>
+        {{ form.csrf_token }}
+        <div class=inField>
+            {{form.task.label }} {{ form.task }}
         </div>
-        <div id="progressField" class="inField">
-            <label for="progress">Progress</label>
-            <input type="range" min="0" max="10" value="5" class="slider" name="progress" id="progress" required>
+        <div class=inField>
+                {{form.progress.label }} {{ form.progress(max=10,min=0) }}
         </div>
-        <div id="dateField" class="inField">
-            <label for="date">Date</label>
-            <input type="date" id="date" name="date" required>
+        <div class=inField>
+                {{form.startDate.label }} {{ form.startDate }}
         </div>
-        <div id="detailsField" class="inField">
-            <label for="details">Details</label>
-            <input name="details" id="details">
+        <div class=inField>
+                {{form.endDate.label }} {{ form.endDate }}
         </div>
-        <div id="referencesField" class="inField">
-            <label for="references">References</label>
-            <input name="references" id="references">
+        <div class=inField>
+                {{form.details.label }} {{ form.details(rows='10') }}
         </div>
-        <input type="submit" name="AddPromise" value="Submit">
-        {{ recaptcha }}
+        <div class=inField>
+                {{form.references.label }} {{ form.references(rows='10') }}
+        </div>
+        {{ form.recaptcha }}
+        <div class='submitContainer'>
+            {{ form.submit }}
+        </div>
     </form>
 </div>
 {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='detailedContainer'>
+    <div class='titleBlock'>
+        <h2>Detailed Task</h2>
+    </div>
+    <div class='taskName'>
+        <h3>Task </h3>
+        <p>{{ taskdata.task }}</p>
+    </div>
+    <div class='taskDetails'>
+        <h3>Details</h3>
+        <p> {{taskdata.details }} </p>
+    </div>
+    <div class='taskTimeLine'>
+        <h3>Time Line</h3>
+        <div class='startDate'> {{ taskdata.startdate }}</div><div class='endDate'> {{taskdata.enddate }}</div>
+    </div>
+    <div class='taskReferences'>
+        <h3>References</h3>
+        <ul>
+            {% for ref in taskdata.references %}
+            <li>{{ ref }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

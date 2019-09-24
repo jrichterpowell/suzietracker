@@ -8,9 +8,19 @@ class Promise(Base):
     taskID = Column(String, primary_key=True)
     task = Column(String)
     progress = Column(Float)
-    date = Column(Date)
+    startdate = Column(Date)
+    enddate = Column(Date)
     details = Column(String)
     references = Column(String)
 
     def __repr__(self):
         return "Task {}".format(str(self.taskID))
+
+class User(Base):
+    __tablename__='users'
+    username = Column(String, primary_key=True)
+    password = Column(String)
+    dateCreated = Column(Date)
+
+    def __userid__():
+        return 

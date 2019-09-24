@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template
 from suzieflask.db import DBSession, init_db_command, getColumnNames, getNRows
 from suzieflask import config
+from flask_wtf import CSRFProtect
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
@@ -24,9 +25,6 @@ def create_app():
         rows = getNRows()
         return render_template("home.html", tableColumns=columns, rows=rows)
 
-    @app.route('/filter')
-    def filter():
-        return ""
 
     @app.route('/about')
     def about():
@@ -38,8 +36,12 @@ def create_app():
 
     app.cli.add_command(init_db_command)
 
-    from . import newpromise
+    from . import newpromise, detailedtask, login
     app.register_blueprint(newpromise.bp)
+    app.register_blueprint(detailedtask.taskBP)
+    app.register_blueprint(login.loginBP)
+
+    CSRFProtect().init_app(app)
     
     return app
 
