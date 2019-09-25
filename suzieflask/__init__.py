@@ -28,7 +28,7 @@ def create_app():
 
     @app.route('/about')
     def about():
-        return ""
+        return render_template("about.html")
     
     @app.teardown_appcontext
     def shutdown_session(exception=None):

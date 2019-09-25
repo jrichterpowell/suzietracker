@@ -22,7 +22,7 @@ def getColumnNames():
 
 def getNRows(N=100):
     session = DBSession()
-    rows = session.query(Promise).all()
+    rows = session.query(Promise).filter(Promise.approved == True).all()
     return [
     (r.taskID, r.task,
     [ 

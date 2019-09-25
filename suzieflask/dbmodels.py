@@ -1,5 +1,5 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, Float, String, Date, create_engine
+from sqlalchemy import Column, Integer, Float, String, Date, create_engine,Boolean
 
 Base = declarative_base()
 class Promise(Base):
@@ -12,6 +12,7 @@ class Promise(Base):
     enddate = Column(Date)
     details = Column(String)
     references = Column(String)
+    approved = Column(Boolean)
 
     def __repr__(self):
         return "Task {}".format(str(self.taskID))

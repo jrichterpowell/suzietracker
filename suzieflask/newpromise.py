@@ -31,24 +31,27 @@ bp = Blueprint('new', __name__, url_prefix="/")
 def new():
     form = PromiseForm(request.form)
     if request.method == 'POST' and form.validate():
+
+        print("Type of the input", type(form.startDate.data), form.startDate.data)
         newPromise = Promise(
             #generate a unique ID for the task by hashing the concatenation of the taskname, 
             #details and references (it may be possible to have two tasks with the same name)
             taskID= hashlib.sha256(bytes(str(form.task.data) + str(form.details.data) + str(form.references.data), encoding='utf-8')).hexdigest(),
-            task=escape(form.task.data),
-            progress=escape(form.progress.data),
-            startdate=escape(form.startDate.data),
-            enddate=escape(form.endDate.data),
-            details=escape(form.details.data),
-            references=escape(form.references.data)
+            task=form.task.data,
+            progress=round(form.progress.data, 2),
+            startdate=form.startDate.data,
+            enddate=form.endDate.data,
+            details=form.details.data,
+            references=form.references.data,
+            approved=False
         )
         #add to sql db
         session = DBSession()
         session.add(newPromise)
         session.commit()
         session.close()
-        return redirect(url_for('home'))
+        return render_template('newpromise.html', form=PromiseForm(), complete=True, home=url_for('home'))
     flash(form.errors)
-    return render_template('newpromise.html', form=PromiseForm())
+    return render_template('newpromise.html', form=PromiseForm(), complete=False)
 
         

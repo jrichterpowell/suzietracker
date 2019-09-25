@@ -29,4 +29,12 @@
         </div>
     </form>
 </div>
+{% if complete %}
+<div class='compOverlay'>
+        <div class='innerOL'>
+                <p>Thanks for adding a promise. To prevent spam, additions to the database have to be manually approved by a moderator. Please check back soon. </p>
+                <button class='homebutton' onclick='location.href = "{{ home }}"'>Return</button>
+        </div>
+</div>
+{% endif %}
 {% endblock %}
